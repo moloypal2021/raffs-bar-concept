@@ -17,3 +17,10 @@
         @apply font-poppins;
     }
 }
+
+.flickity-prev-next-button {
+    z-index: 1000 !important;
+    background: transparent !important;
+    border: 2px solid #fff;
+    color: #fff;
+}
