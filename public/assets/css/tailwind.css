@@ -760,8 +760,16 @@ body{
   margin-top: 0.5rem;
 }
 
+.block{
+  display: block;
+}
+
 .flex{
   display: flex;
+}
+
+.hidden{
+  display: none;
 }
 
 .h-96{
@@ -995,6 +1003,14 @@ body{
     top: 1.75rem;
   }
 
+  .sm\:block{
+    display: block;
+  }
+
+  .sm\:hidden{
+    display: none;
+  }
+
   .sm\:p-7{
     padding: 1.75rem;
   }
@@ -1018,6 +1034,14 @@ body{
 @media (min-width: 768px){
   .md\:bottom-3{
     bottom: 0.75rem;
+  }
+
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
   }
 
   .md\:w-auto{
