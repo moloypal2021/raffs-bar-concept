@@ -725,6 +725,14 @@ body{
   top: 12rem;
 }
 
+.-bottom-20{
+  bottom: -5rem;
+}
+
+.-left-8{
+  left: -2rem;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -735,6 +743,10 @@ body{
 
 .z-\[-1\]{
   z-index: -1;
+}
+
+.z-40{
+  z-index: 40;
 }
 
 .order-2{
@@ -1155,6 +1167,10 @@ body{
   padding-bottom: 3rem;
 }
 
+.pt-24{
+  padding-top: 6rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -1402,6 +1418,14 @@ body{
 
   .lg\:-top-24{
     top: -6rem;
+  }
+
+  .lg\:-top-28{
+    top: -7rem;
+  }
+
+  .lg\:-top-32{
+    top: -8rem;
   }
 
   .lg\:order-1{
