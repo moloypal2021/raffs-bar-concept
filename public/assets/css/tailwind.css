@@ -733,6 +733,10 @@ body{
   z-index: 50;
 }
 
+.z-\[-1\]{
+  z-index: -1;
+}
+
 .order-2{
   order: 2;
 }
@@ -813,6 +817,10 @@ body{
 
 .mb-9{
   margin-bottom: 2.25rem;
+}
+
+.mt-64{
+  margin-top: 16rem;
 }
 
 .block{
@@ -1133,6 +1141,18 @@ body{
 
 .pl-4{
   padding-left: 1rem;
+}
+
+.pb-16{
+  padding-bottom: 4rem;
+}
+
+.pb-8{
+  padding-bottom: 2rem;
+}
+
+.pb-12{
+  padding-bottom: 3rem;
 }
 
 .text-center{
