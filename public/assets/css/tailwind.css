@@ -1515,6 +1515,10 @@ body{
     padding-right: 5rem;
   }
 
+  .lg\:pb-12{
+    padding-bottom: 3rem;
+  }
+
   .lg\:text-right{
     text-align: right;
   }
