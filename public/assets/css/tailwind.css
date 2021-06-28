@@ -931,6 +931,30 @@ body{
   width: 50%;
 }
 
+.w-96{
+  width: 24rem;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-\[600px\]{
+  width: 600px;
+}
+
+.w-\[500px\]{
+  width: 500px;
+}
+
+.w-\[450px\]{
+  width: 450px;
+}
+
+.min-w-\[64px\]{
+  min-width: 64px;
+}
+
 .max-w-screen-2xl{
   max-width: 1536px;
 }
@@ -1169,6 +1193,10 @@ body{
 
 .pt-24{
   padding-top: 6rem;
+}
+
+.pr-12{
+  padding-right: 3rem;
 }
 
 .text-center{
@@ -1440,6 +1468,18 @@ body{
     order: 3;
   }
 
+  .lg\:col-span-5{
+    grid-column: span 5 / span 5;
+  }
+
+  .lg\:col-span-7{
+    grid-column: span 7 / span 7;
+  }
+
+  .lg\:col-span-6{
+    grid-column: span 6 / span 6;
+  }
+
   .lg\:block{
     display: block;
   }
@@ -1472,6 +1512,10 @@ body{
     width: 50%;
   }
 
+  .lg\:w-\[450px\]{
+    width: 450px;
+  }
+
   .lg\:max-w-md{
     max-width: 28rem;
   }
@@ -1484,8 +1528,16 @@ body{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-12{
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
   .lg\:flex-nowrap{
     flex-wrap: nowrap;
+  }
+
+  .lg\:justify-start{
+    justify-content: flex-start;
   }
 
   .lg\:space-x-12 > :not([hidden]) ~ :not([hidden]){
@@ -1543,6 +1595,10 @@ body{
     padding-bottom: 3rem;
   }
 
+  .lg\:pr-24{
+    padding-right: 6rem;
+  }
+
   .lg\:text-right{
     text-align: right;
   }
@@ -1569,6 +1625,11 @@ body{
   .xl\:gap-x-32{
     -moz-column-gap: 8rem;
          column-gap: 8rem;
+  }
+
+  .xl\:gap-x-24{
+    -moz-column-gap: 6rem;
+         column-gap: 6rem;
   }
 
   .xl\:px-24{
