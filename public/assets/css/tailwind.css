@@ -693,12 +693,12 @@ body{
   bottom: 0px;
 }
 
-.-left-10{
-  left: -2.5rem;
+.-left-8{
+  left: -2rem;
 }
 
-.bottom-10{
-  bottom: 2.5rem;
+.-bottom-20{
+  bottom: -5rem;
 }
 
 .right-0{
@@ -725,28 +725,16 @@ body{
   top: 12rem;
 }
 
-.-bottom-20{
-  bottom: -5rem;
-}
-
-.-left-8{
-  left: -2rem;
-}
-
 .z-10{
   z-index: 10;
 }
 
-.z-50{
-  z-index: 50;
-}
-
-.z-\[-1\]{
-  z-index: -1;
-}
-
 .z-40{
   z-index: 40;
+}
+
+.z-50{
+  z-index: 50;
 }
 
 .order-2{
@@ -829,10 +817,6 @@ body{
 
 .mb-9{
   margin-bottom: 2.25rem;
-}
-
-.mt-64{
-  margin-top: 16rem;
 }
 
 .block{
@@ -923,34 +907,6 @@ body{
   width: 1.5rem;
 }
 
-.w-3\/12{
-  width: 25%;
-}
-
-.w-6\/12{
-  width: 50%;
-}
-
-.w-96{
-  width: 24rem;
-}
-
-.w-\[400px\]{
-  width: 400px;
-}
-
-.w-\[600px\]{
-  width: 600px;
-}
-
-.w-\[500px\]{
-  width: 500px;
-}
-
-.w-\[450px\]{
-  width: 450px;
-}
-
 .min-w-\[64px\]{
   min-width: 64px;
 }
@@ -967,16 +923,12 @@ body{
   max-width: 20rem;
 }
 
-.max-w-sm{
-  max-width: 24rem;
-}
-
-.max-w-xl{
-  max-width: 36rem;
-}
-
 .max-w-lg{
   max-width: 32rem;
+}
+
+.max-w-sm{
+  max-width: 24rem;
 }
 
 .rotate-180{
@@ -1030,18 +982,6 @@ body{
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-10 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]){
@@ -1113,14 +1053,6 @@ body{
   padding: 1rem;
 }
 
-.p-10{
-  padding: 2.5rem;
-}
-
-.p-8{
-  padding: 2rem;
-}
-
 .p-2{
   padding: 0.5rem;
 }
@@ -1145,29 +1077,9 @@ body{
   padding-bottom: 6rem;
 }
 
-.py-12{
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .py-6{
@@ -1175,28 +1087,13 @@ body{
   padding-bottom: 1.5rem;
 }
 
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pl-4{
   padding-left: 1rem;
-}
-
-.pb-16{
-  padding-bottom: 4rem;
-}
-
-.pb-8{
-  padding-bottom: 2rem;
-}
-
-.pb-12{
-  padding-bottom: 3rem;
-}
-
-.pt-24{
-  padding-top: 6rem;
-}
-
-.pr-12{
-  padding-right: 3rem;
 }
 
 .text-center{
@@ -1261,6 +1158,14 @@ body{
 
 .text-opacity-30{
   --tw-text-opacity: 0.3;
+}
+
+.text-opacity-60{
+  --tw-text-opacity: 0.6;
+}
+
+.text-opacity-50{
+  --tw-text-opacity: 0.5;
 }
 
 .underline{
@@ -1444,14 +1349,6 @@ body{
     position: absolute;
   }
 
-  .lg\:-top-24{
-    top: -6rem;
-  }
-
-  .lg\:-top-28{
-    top: -7rem;
-  }
-
   .lg\:-top-32{
     top: -8rem;
   }
@@ -1466,14 +1363,6 @@ body{
 
   .lg\:order-3{
     order: 3;
-  }
-
-  .lg\:col-span-5{
-    grid-column: span 5 / span 5;
-  }
-
-  .lg\:col-span-7{
-    grid-column: span 7 / span 7;
   }
 
   .lg\:col-span-6{
@@ -1504,16 +1393,16 @@ body{
     width: 11rem;
   }
 
+  .lg\:w-\[450px\]{
+    width: 450px;
+  }
+
   .lg\:w-3\/12{
     width: 25%;
   }
 
   .lg\:w-6\/12{
     width: 50%;
-  }
-
-  .lg\:w-\[450px\]{
-    width: 450px;
   }
 
   .lg\:max-w-md{
@@ -1540,24 +1429,24 @@ body{
     justify-content: flex-start;
   }
 
-  .lg\:space-x-12 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-x-reverse: 0;
-    margin-right: calc(3rem * var(--tw-space-x-reverse));
-    margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .lg\:space-y-0 > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
   }
 
-  .lg\:border{
-    border-width: 1px;
+  .lg\:space-x-12 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(3rem * var(--tw-space-x-reverse));
+    margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .lg\:border-0{
     border-width: 0px;
+  }
+
+  .lg\:border{
+    border-width: 1px;
   }
 
   .lg\:py-24{
@@ -1565,29 +1454,13 @@ body{
     padding-bottom: 6rem;
   }
 
-  .lg\:px-20{
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-
   .lg\:py-16{
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
 
-  .lg\:pr-12{
-    padding-right: 3rem;
-  }
-
-  .lg\:pr-14{
-    padding-right: 3.5rem;
-  }
-
-  .lg\:pr-16{
-    padding-right: 4rem;
-  }
-
-  .lg\:pr-20{
+  .lg\:px-20{
+    padding-left: 5rem;
     padding-right: 5rem;
   }
 
@@ -1595,8 +1468,12 @@ body{
     padding-bottom: 3rem;
   }
 
-  .lg\:pr-24{
-    padding-right: 6rem;
+  .lg\:pr-12{
+    padding-right: 3rem;
+  }
+
+  .lg\:pr-20{
+    padding-right: 5rem;
   }
 
   .lg\:text-right{
