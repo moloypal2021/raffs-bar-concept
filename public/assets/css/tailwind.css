@@ -1160,10 +1160,6 @@ body{
   --tw-text-opacity: 0.3;
 }
 
-.text-opacity-60{
-  --tw-text-opacity: 0.6;
-}
-
 .text-opacity-50{
   --tw-text-opacity: 0.5;
 }
@@ -1189,12 +1185,6 @@ body{
 /* Tailwind Plugins End*/
 
 /* Tailwind Base Style Convert */
-
-@layer base {
-  body{
-    font-family: Poppins, sans-serif;
-  }
-}
 
 .flickity-prev-next-button {
   z-index: 1000 !important;
