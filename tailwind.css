@@ -33,6 +33,13 @@
     border-radius: 0px;
     color: #fff;
     margin: 0 44px;
+    width: 40px;
+    height: 40px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+    width: 55%;
+    height: 55%;
 }
 
 @media (max-width: 575px) {
