@@ -1189,6 +1189,10 @@ body{
   --tw-text-opacity: 0.5;
 }
 
+.text-opacity-100{
+  --tw-text-opacity: 1;
+}
+
 .underline{
   text-decoration: underline;
 }

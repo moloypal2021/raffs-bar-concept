@@ -13,6 +13,9 @@
 
     <!-- Flickity JavaScript -->
     <script src="./assets/js/flickity.pkgd.min.js" defer></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.1.1/dist/cdn.min.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +23,7 @@
     <section class="bg-dark-10 p-4 sm:p-7">
         <div class="max-w-screen-2xl mx-auto relative overflow-hidden">
             <div class="carousel absolute inset-x-0 top-0"
-                data-flickity='{ "wrapAround": false, "pageDots": false, "fade": true, "autoPlay": 1500, "imagesLoaded": true }'>
+                data-flickity='{ "wrapAround": true, "lazyLoad": true, "contain": true, "pageDots": false, "fade": true, "autoPlay": 1500, "imagesLoaded": true }'>
                 <div class="carousel-cell h-[575px]">
                     <img src="./assets/images/img-1.jpg" alt="" class="w-full h-[575px] object-cover object-center">
                 </div>
@@ -238,26 +241,31 @@
                 </text></svg>
         </div>
 
-        <div class="container xl:max-w-6xl relative z-10 xl:max-w-1400px mx-auto px-8 sm:px-6 md:px-8 py-24">
+        <div class="container xl:max-w-6xl relative z-10 xl:max-w-1400px mx-auto px-8 sm:px-6 md:px-8 py-24"
+            x-data="{openMenu : '1'}">
             <!-- Desktop View -->
             <div class="lg:grid lg:grid-cols-12 xl:gap-x-24 gap-14 hidden">
                 <div class="lg:col-span-6">
                     <ul class="">
-                        <li class="mb-5"><a href="#" class="text-5xl font-bold text-light-10">Main Menu</a></li>
                         <li class="mb-5">
-                            <a href="#"
+                            <p @click="openMenu = '1'" :class="{'text-opacity-100' : openMenu === '1'}"
+                                class="text-5xl font-bold text-light-10 text-opacity-30 hover:text-opacity-100">Main
+                                Menu</p>
+                        </li>
+                        <li class="mb-5">
+                            <p @click="openMenu = '2'" :class="{'text-opacity-100' : openMenu === '2'}"
                                 class="text-5xl font-bold text-light-10 text-opacity-30 hover:text-opacity-100">Drinks
-                                Menu</a>
+                                Menu</p>
                         </li>
                         <li class="mb-5">
-                            <a href="#"
+                            <p @click="openMenu = '3'" :class="{'text-opacity-100' : openMenu === '3'}"
                                 class="text-5xl font-bold text-light-10 text-opacity-30 hover:text-opacity-100">Sunday
-                                Menu</a>
+                                Menu</p>
                         </li>
                         <li class="mb-5">
-                            <a href="#"
+                            <p @click="openMenu = '4'" :class="{'text-opacity-100' : openMenu === '4'}"
                                 class="text-5xl font-bold text-light-10 text-opacity-30 hover:text-opacity-100">Sunday
-                                Menu</a>
+                                Menu</p>
                         </li>
                     </ul>
                     <p class="text-sm text-light-10 font-light max-w-md lg:pr-12 mb-8">All of our food dishes are
@@ -265,7 +273,7 @@
                         our in
                         house
                         chefs daily for your enjoyment. We also cater for larger parties and events. If you would like
-                        to contact us about this please ring <span class="underline">07843 368 254</span> .</p>
+                        to contact us about this please ring <a href="#" class="underline">07843 368 254</a> .</p>
                     <a href="#" class="text-sm font-bold text-light-10 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-4" width="14" height="16" viewBox="0 0 14 16">
                             <path data-name="Path 3401"
@@ -275,169 +283,678 @@
                         Download PDF Menu</a>
                 </div>
                 <div class="lg:col-span-6">
-                    <div class="mb-10">
-                        <h3 class="text-2xl text-light-10 font-bold mb-5">Starters</h3>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                    <div x-show="openMenu === '1'">
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Starters</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Mains</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
                             </div>
-                        </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="mb-10">
-                        <h3 class="text-2xl text-light-10 font-bold mb-5">Mains</h3>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+
+                    <div x-show="openMenu === '2'">
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Starters</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-7.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Mains</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                    </div>
+
+                    <div x-show="openMenu === '3'">
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Starters</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-6.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-5 mb-3">
-                            <div class="">
-                                <img src="./assets/images/img-8.jpg" alt=""
-                                    class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
-                            </div>
-                            <div>
-                                <div class="flex items-center mb-1.5 lg:w-[450px]">
-                                    <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        V</div>
-                                    <div
-                                        class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
-                                        VE</div>
-                                    <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Mains</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
                                 </div>
-                                <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
-                                </p>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div x-show="openMenu === '4'">
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Starters</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-10">
+                            <h3 class="text-2xl text-light-10 font-bold mb-5">Mains</h3>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-5 mb-3">
+                                <div class="">
+                                    <img src="./assets/images/img-8.jpg" alt=""
+                                        class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                                </div>
+                                <div>
+                                    <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                        <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            V</div>
+                                        <div
+                                            class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                            VE</div>
+                                        <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                                    </div>
+                                    <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -455,14 +972,382 @@
                     </svg>
 
                     <select
-                        class="text-2xl font-bold text-light-10 bg-transparent w-full appearance-none focus:outline-none relative z-10">
-                        <option class="bg-dark-10" value="Main Menu">Main Menu</option>
-                        <option class="bg-dark-10" value="Drinks Menu">Drinks Menu</option>
-                        <option class="bg-dark-10" value="Sunday Menu">Sunday Menu</option>
-                        <option class="bg-dark-10" value="Sunday Menu">Sunday Menu</option>
+                        class="text-2xl font-bold text-light-10 bg-transparent w-full appearance-none focus:outline-none relative z-10"
+                        x-model="openMenu">
+                        <option x-bind:selected="openMenu === '1'" class="bg-dark-10" value="1">
+                            Main Menu</option>
+                        <option x-bind:selected="openMenu === '2'" class="bg-dark-10" value="2">
+                            Drinks Menu</option>
+                        <option x-bind:selected="openMenu === '3'" class="bg-dark-10" value="3">
+                            Sunday Menu</option>
+                        <option x-bind:selected="openMenu === '4'" class="bg-dark-10" value="4">
+                            Sunday Menu</option>
                     </select>
                 </div>
-                <div class="">
+                <div x-show="openMenu === '1'">
+                    <h3 class="text-base text-light-10 font-bold mb-2">Starters</h3>
+                    <p class="text-sm text-light-10 font-inter mb-10">Something to get you started with the rest of the
+                        meal.
+                    </p>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="openMenu === '2'">
+                    <h3 class="text-base text-light-10 font-bold mb-2">Starters</h3>
+                    <p class="text-sm text-light-10 font-inter mb-10">Something to get you started with the rest of the
+                        meal.
+                    </p>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-7.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-7.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-7.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-7.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-7.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="openMenu === '3'">
+                    <h3 class="text-base text-light-10 font-bold mb-2">Starters</h3>
+                    <p class="text-sm text-light-10 font-inter mb-10">Something to get you started with the rest of the
+                        meal.
+                    </p>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-6.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-6.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-6.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-6.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-6.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-5 mb-3">
+                        <div class="">
+                            <img src="./assets/images/img-8.jpg" alt=""
+                                class="w-16 h-16 min-w-[64px] rounded-[10px] object-cover object-center">
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1.5 lg:w-[450px]">
+                                <h6 class="text-base font-bold text-light-10 mr-3 sm:mr-5">Salad Verde</h6>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    V</div>
+                                <div
+                                    class="flex justify-center items-center w-5 h-5 rounded-full bg-gray-10 text-[10px] text-light-10 mr-1">
+                                    VE</div>
+                                <h6 class="text-base font-bold font-inter text-light-10 ml-auto">£4.99</h6>
+                            </div>
+                            <p class="text-sm text-light-10">A salad sure to contain lots of healthy stuff.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="openMenu === '4'">
                     <h3 class="text-base text-light-10 font-bold mb-2">Starters</h3>
                     <p class="text-sm text-light-10 font-inter mb-10">Something to get you started with the rest of the
                         meal.
@@ -658,27 +1543,31 @@
                     </div>
                     <div class="w-full lg:w-6/12 lg:order-2 order-1">
                         <div class="flex justify-center mb-5">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="139.589" height="30.688"
-                                viewBox="0 0 139.589 30.688">
-                                <g data-name="Group 3123" fill="#fff">
-                                    <path data-name="Path 3390"
-                                        d="M6.695 2.848c.123.156.244.313.356.476.061.092.116.185.174.277.093.152.191.3.279.462.056.1.1.205.157.308.077.153.152.307.22.462.047.109.093.22.132.331.06.156.119.313.17.472.037.116.071.232.1.349q.067.238.122.481a8.098 8.098 0 01.145.856c.015.124.029.247.039.37.006.064.017.128.02.192h3.62a4.467 4.467 0 011.811.37 4.707 4.707 0 012.509 2.506 4.25 4.25 0 01.267.84.2.2 0 00.009.039 4.648 4.648 0 01.093.938 4.424 4.424 0 01-.372 1.815 4.64 4.64 0 01-1.005 1.5 4.782 4.782 0 01-1.5 1.008 4.507 4.507 0 01-1.813.37h-3.6v7.439l3.289-.02a14.876 14.876 0 007.182-2.134 11.35 11.35 0 00.597-.376l.047-.032a12.11 12.11 0 001.362-1.238 12.507 12.507 0 00.851-1 12.124 12.124 0 002.04-10.564 12.272 12.272 0 00-4.636-6.636c-.334-.238-.65-.446-.979-.64A12.328 12.328 0 0015.473.844 12.1 12.1 0 0012.23.409H3.837c.035.019.067.045.1.065a9.192 9.192 0 01.856.549c.085.061.169.122.252.185a9.39 9.39 0 01.889.767q.314.313.593.647c.06.079.111.155.168.226z" />
-                                    <path data-name="Path 3391"
-                                        d="M20.802 25.732l-.99-2.318a16.338 16.338 0 01-7.062 2.346l1.987 4.571h8.022l-1.947-4.578z" />
-                                    <path data-name="Path 3392"
-                                        d="M7.512 25.259V8.437a8.006 8.006 0 00-2.171-5.475A8.09 8.09 0 000 .43v29.9h7.512z" />
-                                    <path data-name="Path 3405"
-                                        d="M34.02 30.338l1.724-5.729h9.879l1.729 5.729h8.768L46.237.409H35.131l-9.879 29.929zm3.566-11.808l2.981-9.879h.234l2.981 9.879zM58.98 30.338h8.125V18.647h11.633V12.1H67.105V6.956h12.919V.409H58.98zm24.025 0h8.125V18.647h11.632V12.1H91.13V6.956h12.922V.409H83.005zM111.823.409h-5.261v12.1h5.261zm19.582 9.353h7.774C139.15 3.887 134.62 0 127.371 0c-7.117 0-12.144 3.829-12.1 9.528-.015 4.676 3.23 7.278 8.534 8.417l2.981.643c3.332.731 4.472 1.564 4.5 2.923-.029 1.476-1.374 2.514-3.975 2.514-3.113 0-4.954-1.461-5.086-4.209h-7.713c.029 7.511 5.115 10.872 12.918 10.872 7.584 0 12.129-3.273 12.158-9.177-.029-4.559-2.747-7.76-9.353-9.177l-2.455-.526c-2.835-.6-4.106-1.432-4.033-2.864.015-1.315 1.111-2.28 3.624-2.28 2.631 0 3.873 1.154 4.034 3.098z" />
-                                </g>
-                            </svg>
+                            <a href="./index.html" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="139.589" height="30.688"
+                                    viewBox="0 0 139.589 30.688">
+                                    <g data-name="Group 3123" fill="#fff">
+                                        <path data-name="Path 3390"
+                                            d="M6.695 2.848c.123.156.244.313.356.476.061.092.116.185.174.277.093.152.191.3.279.462.056.1.1.205.157.308.077.153.152.307.22.462.047.109.093.22.132.331.06.156.119.313.17.472.037.116.071.232.1.349q.067.238.122.481a8.098 8.098 0 01.145.856c.015.124.029.247.039.37.006.064.017.128.02.192h3.62a4.467 4.467 0 011.811.37 4.707 4.707 0 012.509 2.506 4.25 4.25 0 01.267.84.2.2 0 00.009.039 4.648 4.648 0 01.093.938 4.424 4.424 0 01-.372 1.815 4.64 4.64 0 01-1.005 1.5 4.782 4.782 0 01-1.5 1.008 4.507 4.507 0 01-1.813.37h-3.6v7.439l3.289-.02a14.876 14.876 0 007.182-2.134 11.35 11.35 0 00.597-.376l.047-.032a12.11 12.11 0 001.362-1.238 12.507 12.507 0 00.851-1 12.124 12.124 0 002.04-10.564 12.272 12.272 0 00-4.636-6.636c-.334-.238-.65-.446-.979-.64A12.328 12.328 0 0015.473.844 12.1 12.1 0 0012.23.409H3.837c.035.019.067.045.1.065a9.192 9.192 0 01.856.549c.085.061.169.122.252.185a9.39 9.39 0 01.889.767q.314.313.593.647c.06.079.111.155.168.226z" />
+                                        <path data-name="Path 3391"
+                                            d="M20.802 25.732l-.99-2.318a16.338 16.338 0 01-7.062 2.346l1.987 4.571h8.022l-1.947-4.578z" />
+                                        <path data-name="Path 3392"
+                                            d="M7.512 25.259V8.437a8.006 8.006 0 00-2.171-5.475A8.09 8.09 0 000 .43v29.9h7.512z" />
+                                        <path data-name="Path 3405"
+                                            d="M34.02 30.338l1.724-5.729h9.879l1.729 5.729h8.768L46.237.409H35.131l-9.879 29.929zm3.566-11.808l2.981-9.879h.234l2.981 9.879zM58.98 30.338h8.125V18.647h11.633V12.1H67.105V6.956h12.919V.409H58.98zm24.025 0h8.125V18.647h11.632V12.1H91.13V6.956h12.922V.409H83.005zM111.823.409h-5.261v12.1h5.261zm19.582 9.353h7.774C139.15 3.887 134.62 0 127.371 0c-7.117 0-12.144 3.829-12.1 9.528-.015 4.676 3.23 7.278 8.534 8.417l2.981.643c3.332.731 4.472 1.564 4.5 2.923-.029 1.476-1.374 2.514-3.975 2.514-3.113 0-4.954-1.461-5.086-4.209h-7.713c.029 7.511 5.115 10.872 12.918 10.872 7.584 0 12.129-3.273 12.158-9.177-.029-4.559-2.747-7.76-9.353-9.177l-2.455-.526c-2.835-.6-4.106-1.432-4.033-2.864.015-1.315 1.111-2.28 3.624-2.28 2.631 0 3.873 1.154 4.034 3.098z" />
+                                    </g>
+                                </svg>
                         </div>
                         <ul class="flex justify-center space-x-6 sm:space-x-10">
-                            <li class=""><a href="#" class="text-light-10 text-opacity-50 font-inter text-base">Privacy
+                            <li class=""><a href="#"
+                                    class="text-light-10 text-opacity-50 hover:text-opacity-100 font-inter text-base">Privacy
                                     Policy</a></li>
                             <li class=""><a href="#"
-                                    class="text-light-10 text-opacity-50 font-inter text-base">Sitemap</a></li>
+                                    class="text-light-10 text-opacity-50 hover:text-opacity-100 font-inter text-base">Sitemap</a>
+                            </li>
                             <li class=""><a href="#"
-                                    class="text-light-10 text-opacity-50 font-inter text-base">Careers</a></li>
+                                    class="text-light-10 text-opacity-50 hover:text-opacity-100 font-inter text-base">Careers</a>
+                            </li>
                         </ul>
                     </div>
                     <div
