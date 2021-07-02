@@ -1186,6 +1186,12 @@ body{
 
 /* Tailwind Base Style Convert */
 
+@layer base {
+  body{
+    font-family: Poppins, sans-serif;
+  }
+}
+
 .flickity-prev-next-button {
   z-index: 1000 !important;
   background: transparent !important;
