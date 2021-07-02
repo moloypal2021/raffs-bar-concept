@@ -1138,6 +1138,10 @@ body{
   font-size: 10px;
 }
 
+.text-\[28px\]{
+  font-size: 28px;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -1190,6 +1194,12 @@ body{
 /* Tailwind Plugins End*/
 
 /* Tailwind Base Style Convert */
+
+@layer base {
+  body{
+    font-family: Poppins, sans-serif;
+  }
+}
 
 .carousel-cell {
   width: 100%;
@@ -1487,6 +1497,10 @@ body{
   .lg\:text-5xl{
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .lg\:text-\[50px\]{
+    font-size: 50px;
   }
 }
 
