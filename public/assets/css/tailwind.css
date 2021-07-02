@@ -867,6 +867,10 @@ body{
   height: 341px;
 }
 
+.min-h-\[575px\]{
+  min-height: 575px;
+}
+
 .w-full{
   width: 100%;
 }
@@ -909,6 +913,14 @@ body{
 
 .min-w-\[64px\]{
   min-width: 64px;
+}
+
+.min-w-full{
+  min-width: 100%;
+}
+
+.min-w-\[575px\]{
+  min-width: 575px;
 }
 
 .max-w-screen-2xl{
