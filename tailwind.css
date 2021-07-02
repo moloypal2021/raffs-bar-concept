@@ -19,6 +19,11 @@
     }
 }
 
+.carousel-cell {
+    width: 100%;
+    background-color: aqua;
+}
+
 .flickity-prev-next-button {
     z-index: 1000 !important;
     background: transparent !important;
