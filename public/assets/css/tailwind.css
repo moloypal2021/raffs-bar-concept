@@ -1004,6 +1004,12 @@ body{
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1049,6 +1055,11 @@ body{
 
 .bg-transparent{
   background-color: transparent;
+}
+
+.bg-red-500{
+  --tw-bg-opacity: 1;
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -1430,6 +1441,10 @@ body{
     z-index: 40;
   }
 
+  .lg\:z-30{
+    z-index: 30;
+  }
+
   .lg\:order-1{
     order: 1;
   }
@@ -1448,6 +1463,10 @@ body{
 
   .lg\:block{
     display: block;
+  }
+
+  .lg\:flex{
+    display: flex;
   }
 
   .lg\:grid{
@@ -1585,6 +1604,10 @@ body{
 
   .xl\:max-w-6xl{
     max-width: 72rem;
+  }
+
+  .xl\:max-w-lg{
+    max-width: 32rem;
   }
 
   .xl\:gap-x-24{
