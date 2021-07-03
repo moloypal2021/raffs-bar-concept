@@ -823,6 +823,14 @@ body{
   margin-bottom: 2.25rem;
 }
 
+.mb-12{
+  margin-bottom: 3rem;
+}
+
+.mb-24{
+  margin-bottom: 6rem;
+}
+
 .block{
   display: block;
 }
@@ -911,6 +919,10 @@ body{
   width: 1.25rem;
 }
 
+.w-auto{
+  width: auto;
+}
+
 .min-w-\[64px\]{
   min-width: 64px;
 }
@@ -937,6 +949,24 @@ body{
 
 .rotate-180{
   --tw-rotate: 180deg;
+  transform: var(--tw-transform);
+}
+
+.scale-90{
+  --tw-scale-x: .9;
+  --tw-scale-y: .9;
+  transform: var(--tw-transform);
+}
+
+.scale-100{
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: var(--tw-transform);
+}
+
+.scale-95{
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
   transform: var(--tw-transform);
 }
 
@@ -1004,12 +1034,6 @@ body{
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden{
   overflow: hidden;
 }
@@ -1055,11 +1079,6 @@ body{
 
 .bg-transparent{
   background-color: transparent;
-}
-
-.bg-red-500{
-  --tw-bg-opacity: 1;
-  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -1117,10 +1136,6 @@ body{
 
 .pl-4{
   padding-left: 1rem;
-}
-
-.pt-20{
-  padding-top: 5rem;
 }
 
 .text-center{
@@ -1196,16 +1211,21 @@ body{
   color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 
+.text-red-500{
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.text-opacity-100{
+  --tw-text-opacity: 1;
+}
+
 .text-opacity-30{
   --tw-text-opacity: 0.3;
 }
 
 .text-opacity-50{
   --tw-text-opacity: 0.5;
-}
-
-.text-opacity-100{
-  --tw-text-opacity: 1;
 }
 
 .underline{
@@ -1220,10 +1240,38 @@ body{
   opacity: 0.2;
 }
 
+.opacity-0{
+  opacity: 0;
+}
+
+.opacity-100{
+  opacity: 1;
+}
+
 .ring{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.transition{
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300{
+  transition-duration: 300ms;
+}
+
+.ease-out{
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ease-in{
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 /* Tailwind Plugins End*/
@@ -1275,6 +1323,11 @@ body{
 .hover\:text-dark-10:hover{
   --tw-text-opacity: 1;
   color: rgba(24, 24, 27, var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover{
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 .hover\:text-opacity-100:hover{
@@ -1433,18 +1486,6 @@ body{
     top: -8rem;
   }
 
-  .lg\:z-50{
-    z-index: 50;
-  }
-
-  .lg\:z-40{
-    z-index: 40;
-  }
-
-  .lg\:z-30{
-    z-index: 30;
-  }
-
   .lg\:order-1{
     order: 1;
   }
@@ -1463,10 +1504,6 @@ body{
 
   .lg\:block{
     display: block;
-  }
-
-  .lg\:flex{
-    display: flex;
   }
 
   .lg\:grid{
@@ -1604,10 +1641,6 @@ body{
 
   .xl\:max-w-6xl{
     max-width: 72rem;
-  }
-
-  .xl\:max-w-lg{
-    max-width: 32rem;
   }
 
   .xl\:gap-x-24{
